@@ -4,7 +4,9 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 10000;
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(
+    //__dirname,
+     './client/build')));
 
 
 app.use(cors());
@@ -66,7 +68,9 @@ app.put('/api/orders/:id', (req, res) => {
 
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    res.sendFile(path.join(
+        //__dirname,
+         './client/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
